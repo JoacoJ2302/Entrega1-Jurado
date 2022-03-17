@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-{% load static %}
 <html>
+{% block head %}
+{% load static %}
 <head>
 	<title>Django Social</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="{% static 'normalize.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
+{% endblock head %}
 <body>
 
 	<header class="main-head">
 		<nav class="main">
-			<h1><a class="feed" href="{% url 'feed' %}">Inicio</a></h1>
 			<ul>
+				<li><a class="feed" href="{% url 'feed' %}">Home</a></li>
+				<li><a class="feed" href="{% url 'about' %}">About</a></li>
 				{% if request.user.is_authenticated %}
 				<li><a href="{% url 'logout' %}">Logout</a></li>
 				{% else %}
@@ -35,6 +38,8 @@
 	<!-------------------------------------
 					Navigation Bar 
 	-------------------------------------->
+	{% block feed %}
+	
 	<div class="main">
 		
 		<nav class="second-nav">
@@ -44,11 +49,12 @@
 			<a class="new" href="{% url 'post' %}">Crear nuevo post</a>
 			{% endif %}
 		</nav>
+		
+	{% endblock feed %}
 
+	{% block content %}
 
-		{% block content %}
-
-		{% endblock content %}
+	{% endblock content %}
 
 
 

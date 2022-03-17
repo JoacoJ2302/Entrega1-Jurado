@@ -1,6 +1,17 @@
 {% extends 'social/feed.html' %}
-{% block content %}
+{% load static %}
 
+{% block head %}
+<head>
+	<title>Profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="{% static 'normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+{% endblock head %}
+
+{% block content %}
 <!-- Profile -->
 <div class="profile">
 	<img src="{{user.profile.image.url}}">

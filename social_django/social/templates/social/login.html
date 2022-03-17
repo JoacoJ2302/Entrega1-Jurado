@@ -1,4 +1,15 @@
 {% extends 'social/layout.html' %}
+{% load static %}
+
+{% block head %}
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="{% static 'normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+{% endblock head %}
 
 {% block content %}
 <form class="form" method='post'>

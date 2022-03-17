@@ -3,7 +3,7 @@
 
 {% block head %}
 <head>
-	<title>Register</title>
+	<title>About</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="{% static 'normalize.css' %}">
@@ -11,11 +11,14 @@
 </head>
 {% endblock head %}
 
-{% block content %}
-<form class="form" method='post'>
-    {% csrf_token %}
-    {{form.as_p}}
-
-    <button type='submit' id='submit'>Registrarse</button>
-</form>
-{% endblock content %}
+{% block feed %}
+<div class="main">
+		
+    <nav class="second-nav">
+        <h1>
+            Hola! Me llamo Joaquin Jurado <br>
+            Este blog fue creado para el proyecto final de Coderhouse <br>
+        </h1>
+    </nav>
+{% endblock feed %}
+{% block content %}{% endblock content %}

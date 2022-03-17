@@ -40,6 +40,10 @@ def profile(request, username=None):
 
     return render (request, 'social/profile.html', {'user':user, 'posts':posts})
 
+def about(request):
+    return render (request, 'social/about.html')
+
+
 @login_required
 def post(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
@@ -72,3 +76,4 @@ def unfollow(request, username):
     rel.delete()
     messages.success(request, f'Ya no sigues a {username}')
     return redirect('feed')
+
