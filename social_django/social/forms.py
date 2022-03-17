@@ -17,8 +17,7 @@ class UserRegisterForm(UserCreationForm):
 
 class PostForm(forms.ModelForm):
     content = forms.CharField(label='', widget=forms.Textarea(attrs={'rows':2, 'placeholder':'¿Que esta pasando?'}), required=True)
-    foto = forms.ImageField()
-    
+ 
     class Meta:
         model = Post
-        fields = ['content', 'foto']
+        fields = ['content']
