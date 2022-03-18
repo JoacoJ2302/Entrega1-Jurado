@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-{% block head %}
 {% load static %}
+{% block head %}
 <head>
 	<title>Django Social</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 </head>
 {% endblock head %}
 <body>
-
+	<!-- Header -->
 	<header class="main-head">
 		<nav class="main">
 			<ul>
@@ -27,6 +27,7 @@
 		</nav>
 	</header>
 
+	<!-- Notification -->
 	{% if messages %}
 	{% for message in messages %}
 		<div class='notification {{message.tags}}'>
@@ -35,36 +36,28 @@
 	{% endfor %}
 	{% endif %}
 
-	<!-------------------------------------
-					Navigation Bar 
-	-------------------------------------->
+	<!-- Navigation Bar -->
 	{% block feed %}
-	
 	<div class="main">
-		
 		<nav class="second-nav">
-			<a class="feed" href="{% url 'feed' %}">Inicio</a>
+			<a class="feed" href="{% url 'feed' %}">Home</a>
 			{% if request.user.is_authenticated %}
-			<a class="profile" href="{% url 'profile' request.user.username%}">Mi Perfil</a>
-			<a class="new" href="{% url 'post' %}">Crear nuevo post</a>
+			<a class="profile" href="{% url 'profile' request.user.username%}">Profile</a>
+			<a class="profile" href="{% url 'search' %}">Search</a>
+			<a class="new" href="{% url 'post' %}">New post</a>
 			{% endif %}
 		</nav>
+		{% endblock feed %}
 		
-	{% endblock feed %}
-
-	{% block content %}
-
-	{% endblock content %}
-
-
-
+		<!-- Content -->
+		{% block content %}{% endblock content %}
+		
 	</div>
-
+	<!-- Footer -->
 	<footer>
 		<div class="row">
-			<p>Red Social con Django<br>Hecha por: Joaquin Jurado</a></p>
+			<p>Red Social con Django<br>Hecha por: Joaquin Jurado</p>
 		</div>
 	</footer>
-
 </body>
 </html>

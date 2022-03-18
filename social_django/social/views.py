@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import *
-from .forms import PostForm, UserRegisterForm
+from .forms import PostForm, UserRegisterForm, SearchProfile
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -77,3 +77,13 @@ def unfollow(request, username):
     messages.success(request, f'Ya no sigues a {username}')
     return redirect('feed')
 
+def search(request):
+    user_search = request.GET.get('username', None)
+    
+    if user_search is not None:
+        users = User.objects.filter(username__icontains = user_search)
+    else:
+        users = User.objects.all()
+
+    form = SearchProfile()
+    return render (request, 'social/search.html', {'form':form, 'users':users})
