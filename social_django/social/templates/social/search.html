@@ -2,6 +2,7 @@
 {% load humanize %}
 {% load static %}
 
+
 {% block head %}
 <head>
 	<title>Search</title>
@@ -20,7 +21,7 @@
 	</table>
 	<button>Buscar</button>
 </form>
-	{% for user in users %}
-	<li><a href="{% url 'profile' user.username%}">@{{user}}</a></li>
-	{% endfor %}
-{% endblock %}
+{% for user in users %}
+<li><a href="{% url 'profile' user.username%}">{{user}}</a></li>
+{% endfor %}
+{% endblock content %}

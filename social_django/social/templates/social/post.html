@@ -1,6 +1,7 @@
 {% extends 'social/layout.html' %}
 {% load static %}
 
+
 {% block head %}
 <head>
 	<title>Post</title>
@@ -15,6 +16,6 @@
 <form method='post'>
     {% csrf_token %}
     {{form.as_p}}
-    <button type='submit' id='submit'>Post!</button>
+    <button type='submit' id='submit'>Post</button>
 </form>
 {% endblock content %}

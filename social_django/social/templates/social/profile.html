@@ -1,6 +1,7 @@
 {% extends 'social/feed.html' %}
 {% load static %}
 
+
 {% block head %}
 <head>
 	<title>Profile</title>
@@ -15,7 +16,7 @@
 <!-- Profile -->
 <div class="profile">
 	<img src="{{user.profile.image.url}}">
-	<h2>@{{user.username}}</h2>
+	<h2>{{user.username}}</h2>
 	{% if request.user.is_authenticated %}
 		{% if user.username != request.user.username %}
 			{% if user not in request.user.profile.following %}
@@ -36,7 +37,6 @@
 	<div>
 		<h5>Followers</h5>
 		<p>{{user.profile.follower.count}}</p>
-
 	</div>
 	<div>
 		<h5>Following</h5>
@@ -44,6 +44,5 @@
 	</div>
 </div>
 
-
 {{block.super}}
-{% endblock %}
+{% endblock content%}

@@ -2,9 +2,10 @@
 {% load humanize %}
 {% load static %}
 
+
 {% block head %}
 <head>
-	<title>Feed</title>
+	<title>Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="{% static 'normalize.css' %}">
@@ -18,7 +19,7 @@
     <div class="container-article">
         <img src="{{post.user.profile.image.url}}">
         <div>
-            <h2 class="username"><a href="{% url 'profile' post.user.username %}">@{{post.user.username}}</a></h2>
+            <h2 class="username"><a href="{% url 'profile' post.user.username %}">{{post.user.username}}</a></h2>
             <i class="clock"></i>
             <time data-time="#">{{post.timestamp|naturaltime}}</time>
             <div class="post">{{post.content}}</div>
