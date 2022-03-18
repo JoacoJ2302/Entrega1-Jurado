@@ -5,7 +5,7 @@ from .models import Post
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField
+    email = forms.EmailField(label='Email (Opcional)')
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirma contraseña', widget=forms.PasswordInput)
 

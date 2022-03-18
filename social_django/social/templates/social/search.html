@@ -19,8 +19,8 @@
 		{{form.as_table}}
 	</table>
 	<button>Buscar</button>
+	<br>{% for user in users %}
+	<li><a href="{% url 'profile' user.username%}">{{user}}</a></li>
+	{% endfor %}
 </form>
-{% for user in users %}
-<li><a href="{% url 'profile' user.username%}">{{user}}</a></li>
-{% endfor %}
 {% endblock content %}
