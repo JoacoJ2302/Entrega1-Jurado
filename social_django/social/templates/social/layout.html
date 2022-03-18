@@ -43,13 +43,13 @@
 	<!-- Navigation Bar -->
 	{% block feed %}
 	<div class="main">
-		<nav class="second-nav">
-			{% if request.user.is_authenticated %}
-			<a class="new" href="{% url 'post' %}">New post</a>
-			{% else %}
-			<a class="new">Login for make a post</a>
-			{% endif %}
-		</nav>
+	<nav class="second-nav">
+		{% if request.user.is_authenticated %}
+		<a class="new" href="{% url 'post' %}">New post</a>
+		{% else %}
+		<a class="new" href="{% url 'login' %}">Login for make a post</a>
+		{% endif %}
+	</nav>
 	{% endblock feed %}
 		
 	<!-- Content -->
