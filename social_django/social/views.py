@@ -21,9 +21,7 @@ def register(request):
             return redirect('feed')
     else:
         form = UserRegisterForm()
-    context = {
-        'form' : form,
-    }
+    context = {'form' : form,}
     return render (request, 'social/register.html', context)
 
 def profile(request, username=None):
