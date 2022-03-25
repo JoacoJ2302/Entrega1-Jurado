@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import *
-from .forms import PostForm, UserRegisterForm, SearchProfile
+from .forms import PostForm, UserRegisterForm, SearchProfile, UserEditionForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -79,3 +79,21 @@ def search(request):
         users = User.objects.all()
     form = SearchProfile()
     return render (request, 'social/search.html', {'form':form, 'users':users})
+
+def edit(request):
+    if request.method == 'POST':
+        form = UserEditionForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            logued_user = request.user
+            if data.get('password1') == data.get('password2') and len(data.get('password1')) > 8:
+                logued_user.set_password(data.get('password1'))
+                messages.success(request, f'Contraseña modificada - Vuelve a iniciar sesion') 
+                logued_user.save()
+                return redirect('login')
+            else:
+                messages.error(request, f'No se puedo modificar la contraseña')
+    else:
+        form = UserEditionForm()
+    context = {'form' : form,}
+    return render (request, 'social/edit.html', context)

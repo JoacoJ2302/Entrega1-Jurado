@@ -26,3 +26,7 @@ class PostForm(forms.ModelForm):
 class SearchProfile(forms.Form):
     username = forms.CharField(max_length=20)
     
+    
+class UserEditionForm(forms.Form):
+    password1 = forms.CharField(label='Nueva contraseña', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Confirma nueva contraseña', widget=forms.PasswordInput)
